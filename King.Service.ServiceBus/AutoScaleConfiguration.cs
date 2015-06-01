@@ -36,5 +36,13 @@
             get;
             set;
         }
+
+        public IRunnable Run
+        {
+            get
+            {
+                return new AutoScaler(this);
+            }
+        }
     }
 }

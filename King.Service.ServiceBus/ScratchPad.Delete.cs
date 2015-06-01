@@ -12,8 +12,8 @@
                 QueueCount = new BusQueueReciever("name", "connection"),
                 Task = () => { return new BackoffRunner(new BusDequeue<object>(new BusQueueReciever("name", "connection"), new object())); },
             };
-		
-            yield return new AutoScaler(x);
+
+            yield return x.Run;
         }
     }
 }
