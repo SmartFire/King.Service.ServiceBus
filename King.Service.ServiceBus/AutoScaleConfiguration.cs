@@ -3,14 +3,16 @@
     using System;
     using King.Azure.Data;
     using King.Service.Data;
+    using Scalability;
 
-    public class AutoScaleConfiguration<T>
+    public class AutoScaleConfiguration<T> : ITask
     {
         #region Members
         protected readonly string queueName;
         protected readonly string connectionString;
         protected readonly IProcessor<T> processor;
         protected readonly QueuePriority priority = QueuePriority.Low;
+        protected readonly IQueueThroughput throughput = new QueueThroughput();//Pass into constructor
         #endregion
 
         #region Constructors
@@ -24,38 +26,6 @@
         #endregion
 
         #region Properties
-        public virtual IQueueCount QueueCount
-        {
-            get
-            {
-                return new BusQueueReciever(this.queueName, this.connectionString);
-            }
-        }
-
-        public virtual ushort MessagesPerScaleUnit
-        {
-            get;
-            set;
-        }
-
-        public virtual byte Minimum
-        {
-            get;
-            set;
-        }
-
-        public virtual byte Maximum
-        {
-            get;
-            set;
-        }
-
-        public virtual byte CheckScaleInMinutes
-        {
-            get;
-            set;
-        }
-
         public virtual Func<IScalable> Task
         {
             get
@@ -66,14 +36,26 @@
                 };
             }
         }
+        #endregion
 
-        public virtual IRunnable Runnable
+        #region Methods
+        public virtual IRunnable Runnable()
         {
-            get
-            {
-                return new TempAutoScaler<T>(this);
-            }
+            var queueCount = new BusQueueReciever(this.queueName, this.connectionString);
+            var messagesPerScaleUnit = this.throughput.MessagesPerScaleUnit(this.priority);
+            var minimumScale = this.throughput.MinimumScale(this.priority);
+            var maximumScale = this.throughput.MaximumScale(this.priority);
+            var checkScaleEvery = this.throughput.CheckScaleEvery(this.priority);
+            return new TempAutoScaler(queueCount, messagesPerScaleUnit, this, minimumScale, maximumScale, checkScaleEvery);
         }
         #endregion
+    }
+
+    public interface ITask
+    {
+        Func<IScalable> Task
+        {
+            get;
+        }
     }
 }
