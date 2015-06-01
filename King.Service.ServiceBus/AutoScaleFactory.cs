@@ -18,7 +18,7 @@
     {
         AutoScaleConfiguration<T> config;
         public AutoScaler(AutoScaleConfiguration<T> config)
-            :base(config.QueueCount, config.MessagesPerScaleUnit, config.Configuration, config.Minimum, config.Maximum, config.CheckScaleInMinutes)
+            : base(config.QueueCount, config.MessagesPerScaleUnit, config.Configuration, config.Minimum, config.Maximum, config.CheckScaleInMinutes)
         {
         }
 
