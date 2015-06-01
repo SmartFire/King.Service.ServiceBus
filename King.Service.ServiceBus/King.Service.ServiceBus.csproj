@@ -39,6 +39,8 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AutoScaleConfiguration.cs" />
+    <Compile Include="AutoScaleFactory.cs" />
     <Compile Include="BufferedReciever.cs" />
     <Compile Include="BusDequeue.cs" />
     <Compile Include="BusDequeueBatch.cs" />

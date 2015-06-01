@@ -34,5 +34,10 @@
             get;
             set;
         }
+        public IScalable Task
+        {
+            get;
+            set;
+        }
     }
 }
