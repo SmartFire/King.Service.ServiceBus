@@ -9,6 +9,11 @@
         {
             var x = new AutoScaleConfiguration
             {
+                //Task is OK
+                //I would like to give the processing method & Priority
+                //Priority = Medium/Low/High
+                //Processor = IProcessor.X
+				//Then Get rid of these:
                 QueueCount = new BusQueueReciever("name", "connection"),
                 Task = () => { return new BackoffRunner(new BusDequeue<object>(new BusQueueReciever("name", "connection"), new object())); },
             };

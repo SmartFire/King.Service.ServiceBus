@@ -5,39 +5,39 @@
 
     public class AutoScaleConfiguration
     {
-        public IQueueCount QueueCount
+        public virtual IQueueCount QueueCount
         {
             get;
             set;
         }
-        public ushort MessagesPerScaleUnit
+        public virtual ushort MessagesPerScaleUnit
         {
             get;
             set;
         }
-        public byte Minimum
+        public virtual byte Minimum
         {
             get;
             set;
         }
-        public byte Maximum
+        public virtual byte Maximum
         {
             get;
             set;
         }
-        public byte CheckScaleInMinutes
-        {
-            get;
-            set;
-        }
-
-        public Func<IScalable> Task
+        public virtual byte CheckScaleInMinutes
         {
             get;
             set;
         }
 
-        public IRunnable Run
+        public virtual Func<IScalable> Task
+        {
+            get;
+            set;
+        }
+
+        public virtual IRunnable Run
         {
             get
             {
