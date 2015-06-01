@@ -51,11 +51,12 @@
         {
             get
             {
+                //This needs to be made dynamic, based on priority
                 return () => { return new BackoffRunner(new BusDequeue<T>(new BusQueueReciever(this.queueName, this.connectionString), this.processor)); };
             }
         }
 
-        public virtual IRunnable Run
+        public virtual IRunnable Runnable
         {
             get
             {

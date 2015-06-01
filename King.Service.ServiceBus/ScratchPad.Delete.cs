@@ -19,22 +19,7 @@
         public IEnumerable<IRunnable> Tasks(object config)
         {
             var x = new AutoScaleConfiguration<object>("name", "connection", new MyProcessor());
-
-            yield return x.Run;
-
-   //         yield return new AutoScaleConfiguration()
-   //             .Queue("name")
-   //             .Connection("creds")
-   //             .Priority(High)
-   //             .Processor(new MyProcessor());
-
-   //         var x = new AutoScaleConfiguration("name", "creds")
-   //         {
-   //             Priority = High,
-   //             Processor = new MyProcessor();
-			//};
-
-			//yield return x.Run;
+            yield return x.Runnable;
         }
     }
 }

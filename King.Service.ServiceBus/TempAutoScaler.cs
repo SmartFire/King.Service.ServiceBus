@@ -15,7 +15,7 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="config"></param>
+        /// <param name="config">Configuration</param>
         public TempAutoScaler(AutoScaleConfiguration<T> config)
             : base(config.QueueCount, config.MessagesPerScaleUnit, config, config.Minimum, config.Maximum, config.CheckScaleInMinutes)
         {
@@ -24,10 +24,10 @@
 
         #region Methods
         /// <summary>
-        /// 
+        /// Scale Unit
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">Data/Configuration</param>
+        /// <returns>Task(s)</returns>
         public override IEnumerable<IScalable> ScaleUnit(AutoScaleConfiguration<T> data)
         {
             yield return data.Task();
