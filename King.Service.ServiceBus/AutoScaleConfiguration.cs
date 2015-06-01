@@ -3,14 +3,9 @@
     using System;
     using King.Azure.Data;
 
-    public class AutoScaleConfiguration<T>
+    public class AutoScaleConfiguration
     {
         public IQueueCount QueueCount
-        {
-            get;
-            set;
-        }
-        public T Configuration
         {
             get;
             set;

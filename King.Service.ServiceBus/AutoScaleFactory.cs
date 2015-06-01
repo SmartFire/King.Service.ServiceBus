@@ -3,19 +3,16 @@
     using System.Collections.Generic;
     using King.Service.Data;
 
-    public class AutoScaler<T> : QueueAutoScaler<T>
+    public class AutoScaler : QueueAutoScaler<AutoScaleConfiguration>
     {
-        AutoScaleConfiguration<T> config;
-
-        public AutoScaler(AutoScaleConfiguration<T> config)
-            : base(config.QueueCount, config.MessagesPerScaleUnit, config.Configuration, config.Minimum, config.Maximum, config.CheckScaleInMinutes)
+        public AutoScaler(AutoScaleConfiguration config)
+            : base(config.QueueCount, config.MessagesPerScaleUnit, config, config.Minimum, config.Maximum, config.CheckScaleInMinutes)
         {
         }
 
-        public override IEnumerable<IScalable> ScaleUnit(T data)
+        public override IEnumerable<IScalable> ScaleUnit(AutoScaleConfiguration data)
         {
-            yield return config.Task();
+            yield return data.Task();
         }
     }
-
 }
