@@ -6,11 +6,14 @@
 
     public class AutoScaleConfiguration<T>
     {
+        #region Members
         protected readonly string queueName;
         protected readonly string connectionString;
         protected readonly IProcessor<T> processor;
         protected readonly QueuePriority priority = QueuePriority.Low;
+        #endregion
 
+        #region Constructors
         public AutoScaleConfiguration(string queueName, string connectionString, IProcessor<T> processor, QueuePriority priority = QueuePriority.Low)
         {
             this.queueName = queueName;
@@ -18,7 +21,9 @@
             this.processor = processor;
             this.priority = priority;
         }
+        #endregion
 
+        #region Properties
         public virtual IQueueCount QueueCount
         {
             get
@@ -63,5 +68,6 @@
                 return new TempAutoScaler<T>(this);
             }
         }
+        #endregion
     }
 }
