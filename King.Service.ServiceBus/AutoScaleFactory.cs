@@ -10,8 +10,7 @@
     {
         public QueueAutoScaler<T> Get<T>(AutoScaleConfiguration<T> config)
         {
-            var boom = new AutoScaler<T>(config);
-            return new boom;
+            return new AutoScaler<T>(config);
         }
     }
 
@@ -20,10 +19,12 @@
         AutoScaleConfiguration<T> config;
         public AutoScaler(AutoScaleConfiguration<T> config)
             :base(config.QueueCount, config.MessagesPerScaleUnit, config.Configuration, config.Minimum, config.Maximum, config.CheckScaleInMinutes)
-        { }
+        {
+        }
+
         public override IEnumerable<IScalable> ScaleUnit(T data)
         {
-            yield return config.Task;//THIS NEEDS TO BE CLONED!
+            yield return config.Task();
         }
     }
 

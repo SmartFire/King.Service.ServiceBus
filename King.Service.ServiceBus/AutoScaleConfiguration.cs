@@ -1,5 +1,6 @@
 ﻿namespace King.Service.ServiceBus
 {
+    using System;
     using King.Azure.Data;
 
     public class AutoScaleConfiguration<T>
@@ -34,7 +35,8 @@
             get;
             set;
         }
-        public IScalable Task
+
+        public Func<IScalable> Task
         {
             get;
             set;
