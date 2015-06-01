@@ -1,10 +1,10 @@
 ﻿namespace King.Service.WorkerRole.Scalable
 {
+    using System.Collections.Generic;
     using King.Azure.Data;
     using King.Service.Data;
     using King.Service.ServiceBus;
     using King.Service.ServiceBus.Queue;
-    using System.Collections.Generic;
 
     public class ScalableQueue : QueueAutoScaler<Configuration>
     {
