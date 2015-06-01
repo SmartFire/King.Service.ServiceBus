@@ -31,21 +31,25 @@
                 return new BusQueueReciever(this.queueName, this.connectionString);
             }
         }
+
         public virtual ushort MessagesPerScaleUnit
         {
             get;
             set;
         }
+
         public virtual byte Minimum
         {
             get;
             set;
         }
+
         public virtual byte Maximum
         {
             get;
             set;
         }
+
         public virtual byte CheckScaleInMinutes
         {
             get;
@@ -57,7 +61,9 @@
             get
             {
                 //This needs to be made dynamic, based on priority
-                return () => { return new BackoffRunner(new BusDequeue<T>(new BusQueueReciever(this.queueName, this.connectionString), this.processor)); };
+                return () => {
+                    return new BackoffRunner(new BusDequeue<T>(new BusQueueReciever(this.queueName, this.connectionString), this.processor));
+                };
             }
         }
 
