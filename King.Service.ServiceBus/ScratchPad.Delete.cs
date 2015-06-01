@@ -7,6 +7,13 @@
     {
         public IEnumerable<IRunnable> Tasks(object config)
         {
+            //I am also thinking it might be nice to be fluent
+            //yield return new AutoScaleConfiguration()
+            //    .Queue("name")
+            //    .Connection("creds")
+            //    .Priority(High)
+            //    .Processor(new MyProcessor());
+
             var x = new AutoScaleConfiguration
             {
                 //Task is OK
@@ -19,6 +26,20 @@
             };
 
             yield return x.Run;
+
+   //         yield return new AutoScaleConfiguration()
+   //             .Queue("name")
+   //             .Connection("creds")
+   //             .Priority(High)
+   //             .Processor(new MyProcessor());
+
+   //         var x = new AutoScaleConfiguration("name", "creds")
+   //         {
+   //             Priority = High,
+   //             Processor = new MyProcessor();
+			//};
+
+			//yield return x.Run;
         }
     }
 }
