@@ -14,9 +14,14 @@
     {
         #region Constructors
         /// <summary>
-        /// 
+        /// Default Constructor
         /// </summary>
-        /// <param name="config">Configuration</param>
+        /// <param name="count">Count</param>
+        /// <param name="messagesPerScaleUnit">Messages Per-Scale Unit</param>
+        /// <param name="configuration">Configuration</param>
+        /// <param name="minimum">Minimum Scale</param>
+        /// <param name="maximum">Maximmum Scale</param>
+        /// <param name="checkScaleInMinutes">Check Scale Every</param>
         public TempAutoScaler(IQueueCount count, ushort messagesPerScaleUnit = 10, ITask task = null, byte minimum = 1, byte maximum = 2, byte checkScaleInMinutes = 2)
             : base(count, messagesPerScaleUnit, task, minimum, maximum, checkScaleInMinutes)
         {
