@@ -5,7 +5,7 @@
     using King.Service.Data;
     using Scalability;
 
-    public class AutoScaleConfiguration<T> : ITask
+    public class AutoScaleConfiguration<T> : ITaskCreator
     {
         #region Members
         protected readonly string queueName;
@@ -52,7 +52,7 @@
         #endregion
     }
 
-    public interface ITask
+    public interface ITaskCreator
     {
         Func<IScalable> Task
         {
