@@ -51,12 +51,4 @@
         }
         #endregion
     }
-
-    public interface ITaskCreator
-    {
-        Func<IScalable> Task
-        {
-            get;
-        }
-    }
 }
