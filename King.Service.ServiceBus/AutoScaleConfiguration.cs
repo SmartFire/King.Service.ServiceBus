@@ -30,9 +30,10 @@
         {
             get
             {
-                //This needs to be made dynamic, based on priority
                 return () => {
-                    return new BackoffRunner(new BusDequeue<T>(new BusQueueReciever(this.queueName, this.connectionString), this.processor));
+                    var reciever = new BusQueueReciever(this.queueName, this.connectionString);
+                    var runner = new BusDequeue<T>(reciever, this.processor);
+                    return this.throughput.Runner(runner, this.priority);
                 };
             }
         }
