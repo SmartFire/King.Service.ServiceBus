@@ -40,7 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AutoScaleConfiguration.cs" />
-    <Compile Include="TempAutoScaler.cs" />
     <Compile Include="BufferedReciever.cs" />
     <Compile Include="BusDequeue.cs" />
     <Compile Include="BusDequeueBatch.cs" />

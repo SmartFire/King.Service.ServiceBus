@@ -47,7 +47,7 @@
             var minimumScale = this.throughput.MinimumScale(this.priority);
             var maximumScale = this.throughput.MaximumScale(this.priority);
             var checkScaleEvery = this.throughput.CheckScaleEvery(this.priority);
-            return new TempAutoScaler(queueCount, messagesPerScaleUnit, this, minimumScale, maximumScale, checkScaleEvery);
+            return new QueueSimplifiedScaler(queueCount, messagesPerScaleUnit, this, minimumScale, maximumScale, checkScaleEvery);
         }
         #endregion
     }
