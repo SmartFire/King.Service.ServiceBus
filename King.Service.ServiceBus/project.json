@@ -1,0 +1,18 @@
+﻿{
+  "version": "2.0.0-preview",
+  "description": "King.Service.ServiceBus Class Library",
+  "authors": [ "jefkin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "WindowsAzure.ServiceBus": "3.1.7",
+    "King.Service": "2.0.0-preview",
+    "King.Azure": "2.0.3-preview"
+  },
+
+  "frameworks": {
+    "net45": { }
+  }
+}
