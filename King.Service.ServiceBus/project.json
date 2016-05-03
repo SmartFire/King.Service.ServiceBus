@@ -1,18 +1,27 @@
 ﻿{
   "version": "2.0.0-preview",
-  "description": "King.Service.ServiceBus Class Library",
-  "authors": [ "jefkin" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "title": "King.Service.ServiceBus",
+  "description": "Task scheduling: Service Bus.",
+  "authors": [ "Jef King" ],
+  "owners": [ "Jef King" ],
+  "copyright": "Jef King",
+  "tags": [ "King.Service.ServiceBus Azure Queue Service Bus EventHub Event Hub service-bus scale Topic Topics PubSub Publisher Subscriber Event Time Sensitive time-sensitive auto-scale dynamic-scale dynamic Queuing Background Worker Work Data Processing Table Environment Initialize Task Tasks volume Dequeue Dequeuing run task service services tasks scheduling King.Service King.Azure" ],
+  "projectUrl": "https://github.com/jefking/King.Service.ServiceBus",
+  "licenseUrl": "https://github.com/jefking/King.Service.ServiceBus/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/jefking/King.Service.ServiceBus/master/icon.png",
 
   "dependencies": {
     "WindowsAzure.ServiceBus": "3.1.7",
-    "King.Service": "2.0.0-preview",
+    "King.Service": "2.0.1-preview",
     "King.Azure": "2.0.3-preview"
   },
 
   "frameworks": {
-    "net45": { }
+    "net45": {
+      "frameworkAssemblies": {
+        "System": { },
+        "System.Data": { }
+      }
+    }
   }
 }

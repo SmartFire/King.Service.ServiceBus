@@ -1,6 +1,6 @@
 ﻿namespace King.Service.ServiceBus
 {
-    using Azure.Data;
+    using King.Azure.Data;
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Messaging;
     using System;
