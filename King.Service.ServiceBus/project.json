@@ -12,12 +12,18 @@
 
   "dependencies": {
     "WindowsAzure.ServiceBus": "3.1.7",
-    "King.Service": "2.0.1-preview",
+    "King.Service": "2.0.2-preview",
     "King.Azure": "2.0.3-preview"
   },
 
   "frameworks": {
     "net45": {
+      "frameworkAssemblies": {
+        "System": { },
+        "System.Data": { }
+      }
+    },
+    "net451": {
       "frameworkAssemblies": {
         "System": { },
         "System.Data": { }
